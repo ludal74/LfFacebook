@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Facebook - connection callback</title>
+</head>
+
+<body>
+
+	<?php
+    	if($this->msg == 'error')
+        {    
+    ?>
+    <p>
+		Erreur : vous devez donner l'autorisation pour pouvoir participer
+		Facebook detailed error : <?php echo $this->error;?>;
+		
+		<script type="text/javascript">
+			
+			$(document).ready(function()
+			{	
+			    opener.<?php echo $this->errorCallback;?>;
+				window.close();	
+			});
+		</script>
+    </p>
+    <?php
+    	}
+        else
+        {
+    ?>
+    	<script type="text/javascript">
+			
+			$(document).ready(function(){		
+				  opener.<?php echo $this->successCallback;?>;
+				  window.close();
+			});
+			
+		</script>
+		
+      	<p>Connexion &agrave; Facebook r&eacute;ussie. Vous pouvez fermer cette fen&ecirc;tre</p>
+    <?php
+   		}
+    ?>
+
+</body>
+</html>

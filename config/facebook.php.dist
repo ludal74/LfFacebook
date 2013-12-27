@@ -1,0 +1,21 @@
+<?php
+namespace Facebook;
+
+return array(
+    
+    //----------------------------------------------
+    // FACEBOOK CONFIGURATION
+    //-----------------------------------------------
+    'facebook' => array(
+    	'appId'            => 'YOUR_API_ID',
+    	'secret-key'       => 'YOUR_SECRET_KEY',	
+        'permissions'      => array(
+                               'email', 
+                               'publish_stream', 
+                               'user_likes',
+                                ),
+        'redirect-url'     => '/YOUR_SPECIFIC_PATH/facebook/callback',
+        'errorCallback'    => 'facebookUserErrorCallback()',
+        'successCallback'  => 'facebookUserErrorCallback()',
+    ),
+);
